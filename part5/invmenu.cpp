@@ -1,4 +1,5 @@
 #include <iostream>
+#include "invmenu.h"
 using namespace std;
 
 void invmenu()

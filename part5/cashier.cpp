@@ -1,4 +1,4 @@
-#include "cashier.h";
+#include "cashier.h"
 #include <iostream>
 using namespace std;
 

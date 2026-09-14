@@ -40,6 +40,8 @@ void reports()
 			case 6:
 				repAge();
 				break;
+			case 7:
+				break;
 			default:
 				cout << "Invalid choice." << endl;
 		}

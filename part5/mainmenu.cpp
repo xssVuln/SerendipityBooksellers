@@ -23,7 +23,6 @@ int main()
 	if(choice < 1 || choice > 4){
 		cout << "Please enter a number in the range 1 – 4." << endl;
 	}
-	}while(choice != 4);
 
 	switch(choice){
 		case 1:
@@ -38,8 +37,12 @@ int main()
 			break;
 		case 4:
 			cout << "You selected item 4." << endl;
+				break;
 		default:
+			cout << "Invalid choice." << endl;
+			break;
 	}
+	}while(choice != 4);
 	
 	return 0;
 }

@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build SerendipityBooksellers",
+            "type": "shell",
+            "command": "g++ -fdiagnostics-color=always -g ${workspaceFolder}/part5/*.cpp -o ${workspaceFolder}/part5/mainmenu",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}
