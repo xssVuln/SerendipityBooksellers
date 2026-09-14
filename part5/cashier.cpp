@@ -1,7 +1,8 @@
+#include "cashier.h";
 #include <iostream>
 using namespace std;
 
-int main()
+void cashier()
 {
 	int choice;
 
@@ -48,5 +49,4 @@ int main()
 	cout << "\tTotal\t\t\t$" << total + tax << endl;
 	cout << endl;
 	cout << "Thank You for Shopping at Serendipity!" << endl;
-	return 0;
 }

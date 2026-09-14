@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main()
+void bookinfo()
 {
 	cout << "\tSerendipity Booksellers" << endl;
 	cout << "\tBook Information\n" << endl;
@@ -18,7 +18,4 @@ int main()
 	cout << "Enter Your Choice: ";
 	string choice;
 	getline(cin, choice);
-
-	
-	return 0;
 }
