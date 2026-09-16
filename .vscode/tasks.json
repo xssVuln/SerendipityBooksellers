@@ -4,7 +4,7 @@
         {
             "label": "Build SerendipityBooksellers",
             "type": "shell",
-            "command": "g++ -fdiagnostics-color=always -g ${workspaceFolder}/part5/*.cpp -o ${workspaceFolder}/part5/mainmenu",
+            "command": "g++ -fdiagnostics-color=always -g ${workspaceFolder}/part7/*.cpp -o ${workspaceFolder}/part7/mainmenu",
             "group": {
                 "kind": "build",
                 "isDefault": true
