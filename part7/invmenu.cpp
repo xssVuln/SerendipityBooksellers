@@ -1,4 +1,5 @@
 #include <iostream>
+#include "bookinfo.h"
 #include "invmenu.h"
 using namespace std;
 
@@ -50,7 +51,7 @@ void lookUpBook(){
 	cout << "You selected Look Up Book." << endl;
 };
 void addBook(){
-	cout << "You selected Add Book." << endl;
+	cout << "You selected Look Up Book." << endl;
 };
 void editBook(){
 	cout << "You selected Edit Book." << endl;
