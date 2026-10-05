@@ -30,7 +30,7 @@ int main()
 			cashier();
 			break;
 		case 2:
-			invmenu();
+			invMenu();
 			break;
 		case 3:
 			reports();

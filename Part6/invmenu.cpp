@@ -2,7 +2,7 @@
 #include "invmenu.h"
 using namespace std;
 
-void invmenu()
+void invMenu()
 {
     int choice;
     
@@ -42,7 +42,7 @@ void invmenu()
 			default:
 				cout << "Invalid choice." << endl;
 		}
-	}while(choice != 4);
+	}while(choice != 5);
 
 }
 

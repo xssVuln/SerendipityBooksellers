@@ -1,7 +1,9 @@
 #include <iostream>
+#include "bookinfo.h"
+
 using namespace std;
 
-void bookinfo()
+void bookInfo()
 {
 	cout << "\tSerendipity Booksellers" << endl;
 	cout << "\tBook Information\n" << endl;

@@ -1,10 +1,14 @@
 #include "cashier.h"
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
 
 void cashier()
 {
 	int choice;
+
+	cout << fixed << setprecision(2) << setw(6);
 
 	cout << "Serendipity Booksellers\n";
 	cout << "\tCashier Module\n";
