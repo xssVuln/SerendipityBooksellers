@@ -1,13 +1,12 @@
 #include "cashier.h"
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 using namespace std;
 
 void cashier()
 {
-	int choice;
-
 	cout << fixed << setprecision(2) << setw(6);
 
 	cout << "Serendipity Booksellers\n";
@@ -18,7 +17,7 @@ void cashier()
 	getline(cin, date);
 
 	cout << "Quantity of books: ";
-	double quantity;
+	int quantity;
 	cin >> quantity;
 
 	cin.ignore();

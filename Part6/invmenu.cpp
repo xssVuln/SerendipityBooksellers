@@ -20,7 +20,7 @@ void invMenu()
 		cin >> choice;
 
 		if(choice < 1 || choice > 5){
-			cout << "Please enter a number in the range 1 – 4." << endl;
+			cout << "Please enter a number in the range 1 – 5." << endl;
 		}
 
 		switch(choice){
@@ -41,6 +41,7 @@ void invMenu()
 				break;
 			default:
 				cout << "Invalid choice." << endl;
+				break;
 		}
 	}while(choice != 5);
 
