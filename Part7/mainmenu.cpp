@@ -6,18 +6,18 @@ using namespace std;
 #include "reports.h"
 
 // Constants for array sizes
-extern const int SIZE = 20;
+const int SIZE = 20;
 
 // Global Arrays
-extern string bookTitle[SIZE];
-extern string isbn[SIZE];
-extern string author[SIZE];
-extern string publisher[SIZE];
-extern string dateAdded[SIZE];
+string bookTitle[SIZE];
+string isbn[SIZE];
+string author[SIZE];
+string publisher[SIZE];
+string dateAdded[SIZE];
 
-extern int qtyOnHand[SIZE];
-extern double wholesale[SIZE];
-extern double retail[SIZE];
+int qtyOnHand[SIZE];
+double wholesale[SIZE];
+double retail[SIZE];
 
 int main()
 {

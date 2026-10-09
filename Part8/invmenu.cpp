@@ -68,7 +68,7 @@ void lookUpBook(){
 
 	bool found = false;
 	for(int i = 0; i < SIZE; i++){
-		if(bookTitle[i] == bookName){
+		if(bookTitle[i] == bookName && !found){
 			bookinfo(bookTitle[i], isbn[i], author[i], publisher[i], dateAdded[i], qtyOnHand[i], wholesale[i], retail[i]);
 			found = true;
 		}
@@ -80,48 +80,56 @@ void lookUpBook(){
 
 void addBook(){
 	int index = 0;
+	int empty = 0;
 
+	bool found = false;
 	for(int i = 0; i < SIZE; i++){
-		if(bookTitle[i] == ""){
+		if(bookTitle[i] == "" && !found){
+			empty++;
 			index = i;
+			found = true;
 		}
 	}
 
-	cout << "Enter book title: ";
-	string titleValue;
-	cin.ignore();
-	getline(cin, titleValue);
-	cout << "Enter ISBN: ";
-	string isbnValue;
-	getline(cin, isbnValue);
-	cout << "Enter author: ";
-	string authorValue;
-	getline(cin, authorValue);
-	cout << "Enter publisher: ";
-	string publisherValue;
-	getline(cin, publisherValue);
-	cout << "Enter date added: ";
-	string dateAddedValue;
-	getline(cin, dateAddedValue);
-	cout << "Enter quantity on hand: ";
-	int qtyOnHandValue;
-	cin >> qtyOnHandValue;
-	cout << "Enter wholesale cost: ";
-	double wholesaleValue;
-	cin >> wholesaleValue;
-	cout << "Enter retail price: ";
-	double retailValue;
-	cin >> retailValue;
+	if(empty < 1){
+		cout << "No more books can be added" << endl;
+	}else{
+		cout << "Enter book title: ";
+		string titleValue;
+		cin.ignore();
+		getline(cin, titleValue);
+		cout << "Enter ISBN: ";
+		string isbnValue;
+		getline(cin, isbnValue);
+		cout << "Enter author: ";
+		string authorValue;
+		getline(cin, authorValue);
+		cout << "Enter publisher: ";
+		string publisherValue;
+		getline(cin, publisherValue);
+		cout << "Enter date added: ";
+		string dateAddedValue;
+		getline(cin, dateAddedValue);
+		cout << "Enter quantity on hand: ";
+		int qtyOnHandValue;
+		cin >> qtyOnHandValue;
+		cout << "Enter wholesale cost: ";
+		double wholesaleValue;
+		cin >> wholesaleValue;
+		cout << "Enter retail price: ";
+		double retailValue;
+		cin >> retailValue;
 
-	bookTitle[index] = titleValue;
-	isbn[index] = isbnValue;
-	author[index] = authorValue;
-	publisher[index] = publisherValue;
-	dateAdded[index] = dateAddedValue;
-	qtyOnHand[index] = qtyOnHandValue;
-	wholesale[index] = wholesaleValue;
-	retail[index] = retailValue;
-	cout << "Book added successfully!" << endl;
+		bookTitle[index] = titleValue;
+		isbn[index] = isbnValue;
+		author[index] = authorValue;
+		publisher[index] = publisherValue;
+		dateAdded[index] = dateAddedValue;
+		qtyOnHand[index] = qtyOnHandValue;
+		wholesale[index] = wholesaleValue;
+		retail[index] = retailValue;
+		cout << "Book added successfully!" << endl;
+	}
 };
 
 void editBook(){
@@ -130,46 +138,82 @@ void editBook(){
 	cin.ignore();
 	getline(cin, bookName);
 
+	int index = -1;
 	for(int i = 0; i < SIZE; i++){
 		if(bookTitle[i] == bookName){
-			bookinfo(bookTitle[i], isbn[i], author[i], publisher[i], dateAdded[i], qtyOnHand[i], wholesale[i], retail[i]);
-			
-			cout << "Enter new book title: ";
-			string titleValue;
-			getline(cin, titleValue);
-			cout << "Enter new ISBN: ";
-			string isbnValue;
-			getline(cin, isbnValue);
-			cout << "Enter new author: ";
-			string authorValue;
-			getline(cin, authorValue);
-			cout << "Enter new publisher: ";
-			string publisherValue;
-			getline(cin, publisherValue);
-			cout << "Enter new date added: ";
-			string dateAddedValue;
-			getline(cin, dateAddedValue);
-			cout << "Enter new quantity on hand: ";
-			int qtyOnHandValue;
-			cin >> qtyOnHandValue;
-			cout << "Enter new wholesale cost: ";
-			double wholesaleValue;
-			cin >> wholesaleValue;
-			cout << "Enter new retail price: ";
-			double retailValue;
-			cin >> retailValue;
-
-			bookTitle[i] = titleValue;
-			isbn[i] = isbnValue;
-			author[i] = authorValue;
-			publisher[i] = publisherValue;
-			dateAdded[i] = dateAddedValue;
-			qtyOnHand[i] = qtyOnHandValue;
-			wholesale[i] = wholesaleValue;
-			retail[i] = retailValue;
-
+			index = i;
+			break;
 		}
 	}
+
+	if(index == -1){
+		cout << "Book is not in the inventory" << endl;
+		return;
+	}
+
+	bookinfo(bookTitle[index], isbn[index], author[index], publisher[index], dateAdded[index], qtyOnHand[index], wholesale[index], retail[index]);
+
+	int fieldChoice = 0;
+	do{
+		cout << "\nWhich field would you like to change?" << endl;
+		cout << "1. Title" << endl;
+		cout << "2. ISBN" << endl;
+		cout << "3. Author" << endl;
+		cout << "4. Publisher" << endl;
+		cout << "5. Date Added" << endl;
+		cout << "6. Quantity on Hand" << endl;
+		cout << "7. Wholesale Cost" << endl;
+		cout << "8. Retail Price" << endl;
+		cout << "9. Exit" << endl;
+		cout << "Enter your choice: ";
+		cin >> fieldChoice;
+
+		switch(fieldChoice){
+			case 1:
+				cout << "Enter new book title: ";
+				cin.ignore();
+				getline(cin, bookTitle[index]);
+				break;
+			case 2:
+				cout << "Enter new ISBN: ";
+				cin.ignore();
+				getline(cin, isbn[index]);
+				break;
+			case 3:
+				cout << "Enter new author: ";
+				cin.ignore();
+				getline(cin, author[index]);
+				break;
+			case 4:
+				cout << "Enter new publisher: ";
+				cin.ignore();
+				getline(cin, publisher[index]);
+				break;
+			case 5:
+				cout << "Enter new date added: ";
+				cin.ignore();
+				getline(cin, dateAdded[index]);
+				break;
+			case 6:
+				cout << "Enter new quantity on hand: ";
+				cin >> qtyOnHand[index];
+				break;
+			case 7:
+				cout << "Enter new wholesale cost: ";
+				cin >> wholesale[index];
+				break;
+			case 8:
+				cout << "Enter new retail price: ";
+				cin >> retail[index];
+				break;
+			case 9:
+				cout << "Returning to the inventory menu." << endl;
+				break;
+			default:
+				cout << "Invalid choice. Please enter a number from 1 to 9." << endl;
+				break;
+		}
+	}while(fieldChoice != 9);
 };
 
 void deleteBook(){
@@ -200,6 +244,8 @@ void deleteBook(){
 			}else{
 				cout << "Book deletion canceled." << endl;
 			}
+		}else{
+			cout << "Book is not in inventory" << endl;
 		}
 	}
 };
