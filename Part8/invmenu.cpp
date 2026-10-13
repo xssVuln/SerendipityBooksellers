@@ -221,9 +221,12 @@ void deleteBook(){
 	string bookName;
 	cin.ignore();
 	getline(cin, bookName);
+
+	bool found = false;
 	
 	for(int i = 0; i < SIZE; i++){
 		if(bookTitle[i] == bookName){
+			found = true;
 			bookinfo(bookTitle[i], isbn[i], author[i], publisher[i], dateAdded[i], qtyOnHand[i], wholesale[i], retail[i]);
 			
 			cout << "Are you sure you want to delete this book? (Y/N): ";
@@ -244,8 +247,10 @@ void deleteBook(){
 			}else{
 				cout << "Book deletion canceled." << endl;
 			}
-		}else{
-			cout << "Book is not in inventory" << endl;
 		}
+	}
+
+	if(!found){
+		cout << "Book is not in inventory" << endl;
 	}
 };
