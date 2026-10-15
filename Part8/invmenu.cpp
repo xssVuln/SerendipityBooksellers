@@ -69,7 +69,7 @@ void lookUpBook(){
 	bool found = false;
 	for(int i = 0; i < SIZE; i++){
 		if(bookTitle[i] == bookName && !found){
-			bookinfo(bookTitle[i], isbn[i], author[i], publisher[i], dateAdded[i], qtyOnHand[i], wholesale[i], retail[i]);
+			bookInfo(isbn[i], bookTitle[i], author[i], publisher[i], dateAdded[i], qtyOnHand[i], wholesale[i], retail[i]);
 			found = true;
 		}
 	}
@@ -107,7 +107,7 @@ void addBook(){
 		cout << "Enter publisher: ";
 		string publisherValue;
 		getline(cin, publisherValue);
-		cout << "Enter date added: ";
+		cout << "Enter date added (MM-DD-YYYY): ";
 		string dateAddedValue;
 		getline(cin, dateAddedValue);
 		cout << "Enter quantity on hand: ";
@@ -151,7 +151,7 @@ void editBook(){
 		return;
 	}
 
-	bookinfo(bookTitle[index], isbn[index], author[index], publisher[index], dateAdded[index], qtyOnHand[index], wholesale[index], retail[index]);
+	bookInfo(isbn[index], bookTitle[index], author[index], publisher[index], dateAdded[index], qtyOnHand[index], wholesale[index], retail[index]);
 
 	int fieldChoice = 0;
 	do{
@@ -160,7 +160,7 @@ void editBook(){
 		cout << "2. ISBN" << endl;
 		cout << "3. Author" << endl;
 		cout << "4. Publisher" << endl;
-		cout << "5. Date Added" << endl;
+		cout << "5. Date Added (MM-DD-YYYY)" << endl;
 		cout << "6. Quantity on Hand" << endl;
 		cout << "7. Wholesale Cost" << endl;
 		cout << "8. Retail Price" << endl;
@@ -227,7 +227,7 @@ void deleteBook(){
 	for(int i = 0; i < SIZE; i++){
 		if(bookTitle[i] == bookName){
 			found = true;
-			bookinfo(bookTitle[i], isbn[i], author[i], publisher[i], dateAdded[i], qtyOnHand[i], wholesale[i], retail[i]);
+			bookInfo(isbn[i], bookTitle[i], author[i], publisher[i], dateAdded[i], qtyOnHand[i], wholesale[i], retail[i]);
 			
 			cout << "Are you sure you want to delete this book? (Y/N): ";
 

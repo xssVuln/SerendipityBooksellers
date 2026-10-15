@@ -1,8 +1,12 @@
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
 
-void bookinfo(string isbn, string title, string author, string publisher, string date, int qty, double wholesale, double retail)
+void bookInfo(string isbn, string title, string author, string publisher, string date, int qty, double wholesale, double retail)
 {
+	cout << fixed << setprecision(2);
+
 	cout << "\tSerendipity Booksellers" << endl;
 	cout << "\tBook Information\n" << endl;
 
