@@ -2,43 +2,61 @@
 #include <iostream>
 using namespace std;
 
+extern string bookTitle[];
+extern string isbn[];
+extern double retail[];
+
 void cashier()
 {
-	int choice;
-
 	cout << "Serendipity Booksellers\n";
 	cout << "\tCashier Module\n";
 
-	cout << "Date: ";
+	cout << "Date (MM/DD/YY): ";
 	string date;
 	getline(cin, date);
 
-	cout << "Quantity of books: ";
+	cout << "ISBN (#-###-#####-#): ";
+	string isbnIn;
+	getline(cin, isbnIn);
+
+	int SIZE = 20;
+	bool found = false;
+	int reenter = 1;
+
+	while(!found && reenter == 1){
+
+		for(int i = 0; i < SIZE; i++)
+		{
+			if(isbnIn == isbn[i])
+			{
+				found = true;
+				cout << "Book Title: " << bookTitle[i] << endl;
+				cout << "Price: $" << retail[i] << endl;
+				break;
+			}
+		}
+
+		if(!found)
+		{
+			cout << "ISBN number was not found." << endl;
+		}
+
+		cout << "Re-enter ISBN number? ";
+		cin >> reenter;
+	}
+
+	cout << "Quantity of book: ";
 	double quantity;
 	cin >> quantity;
-
-	cin.ignore();
-
-	cout << "ISBN: ";
-	string isbn;
-	getline(cin, isbn);
-
-	cout << "Title: ";
-	string title;
-	getline(cin, title);
-
-	cout << "Price: ";
-	double price;
-	cin >> price;
 
 	cout << "Serendipity Booksellers" << endl;
 	cout << "Date:" << date << "\n" << endl;
     cout << "Qty\tISBN\tTitle\tPrice\tTotal" << endl;
 	cout << "___________________________________________________________" << endl;
 
-	double total = quantity * price;
+	double total = quantity * 1;
 
-	cout << quantity << "\t" << isbn << "\t" << title << "\t" << price << "\t" << total << endl;
+	cout << quantity << "\t" << isbn << "\t" << "t" << "\t" << "t" << "\t" << total << endl;
 	cout << endl;
 	cout << endl;
 	cout << "\tSubtotal\t\t$" << total << endl;
