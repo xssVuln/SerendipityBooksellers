@@ -57,7 +57,6 @@ void invmenu()
 				cout << "Invalid choice." << endl;
 		}
 	}while(choice != 5);
-
 }
 
 void lookUpBook(){

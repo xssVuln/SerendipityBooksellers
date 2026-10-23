@@ -41,6 +41,7 @@ void reports()
 				repAge();
 				break;
 			case 7:
+				cout << "You selected item 5." << endl;
 				break;
 			default:
 				cout << "Invalid choice." << endl;

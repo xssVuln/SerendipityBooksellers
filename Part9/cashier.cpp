@@ -15,16 +15,16 @@ void cashier()
 	string date;
 	getline(cin, date);
 
-	cout << "ISBN (#-###-#####-#): ";
-	string isbnIn;
-	getline(cin, isbnIn);
-
 	int SIZE = 20;
 	bool found = false;
 	int reenter = 1;
+	double quantity = 0;
+	int addAnother = 0;
 
-	while(!found && reenter == 1){
-
+	while((!found && reenter == 1) || addAnother == 1){
+		cout << "ISBN (#-###-#####-#): ";
+		string isbnIn;
+		getline(cin, isbnIn);
 		for(int i = 0; i < SIZE; i++)
 		{
 			if(isbnIn == isbn[i])
@@ -32,6 +32,13 @@ void cashier()
 				found = true;
 				cout << "Book Title: " << bookTitle[i] << endl;
 				cout << "Price: $" << retail[i] << endl;
+
+				cout << "Quantity of book: ";
+				cin >> quantity;
+
+				cout << "Add another book to this order?";
+				cin >> addAnother;
+				cin.ignore();
 				break;
 			}
 		}
@@ -39,15 +46,11 @@ void cashier()
 		if(!found)
 		{
 			cout << "ISBN number was not found." << endl;
+			cout << "Re-enter ISBN number? ";
+			cin >> reenter;
+			cin.ignore();
 		}
-
-		cout << "Re-enter ISBN number? ";
-		cin >> reenter;
 	}
-
-	cout << "Quantity of book: ";
-	double quantity;
-	cin >> quantity;
 
 	cout << "Serendipity Booksellers" << endl;
 	cout << "Date:" << date << "\n" << endl;
